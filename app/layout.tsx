@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { ClerkProvider } from "@clerk/nextjs"
 import Header from "@/components/header/header"
+import Sidebar from "@/components/sidebar/sidebar"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -18,7 +19,12 @@ export default function RootLayout({
       <html lang="en">
         <body>
           <Header />
-          {children}
+          <div className="flex min-h-screen">
+            <Sidebar />
+            <div className="flex-1 p-4 bg-gray-100 overflow-y-auto scrollbar-hide">
+              {children}
+            </div>
+          </div>
         </body>
       </html>
     </ClerkProvider>
